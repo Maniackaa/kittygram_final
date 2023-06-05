@@ -20,7 +20,7 @@ jobs:
           POSTGRES_DB: django_db
           DB_HOST: db
           DB_PORT: 5432
-          SECRET_KEY: django-insecure-5!@(1#jwja4*pmu@0t2@r$!m8*g!tftwuotz4a527mqz99-u12
+          SECRET_KEY: django-insecure-secret-abcabc123123
           DEBUG: False
           ALLOWED_HOSTS: '158.160.69.22,127.0.0.1,localhost'
         ports:
@@ -52,7 +52,7 @@ jobs:
         # Поэтому подключаемся к 127.0.0.1:5432
         DB_HOST: 127.0.0.1
         DB_PORT: 5432
-        SECRET_KEY: django-insecure-5!@(1#jwja4*pmu@0t2@r$!m8*g!tftwuotz4a527mqz99-u12
+        SECRET_KEY: django-insecure-secret-abcabc123123
         DEBUG: False
         ALLOWED_HOSTS: '158.160.69.22,127.0.0.1,localhost'
       run: |
