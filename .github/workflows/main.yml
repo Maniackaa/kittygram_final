@@ -19,12 +19,12 @@ jobs:
           POSTGRES_PASSWORD: django_password
           POSTGRES_DB: django_db
           DB_HOST: db_kitty
-          DB_PORT: 5432
+          DB_PORT: 5433
           SECRET_KEY: django-insecure-secret-abcabc123123
           DEBUG: False
           ALLOWED_HOSTS: '158.160.69.22,127.0.0.1,localhost'
         ports:
-          - 5432:5432
+          - 5433:5433
         # Эта конструкция описывает проверку готовности сервиса postgres
         # Если ее не будет, то тесты могут запуститься раньше, чем сервер PostgreSQL
         # В результате тесты опять решат, что базы нет - и упадут
@@ -51,7 +51,7 @@ jobs:
         # Сервер БД запущен в Docker, но его порт проброшен на хост
         # Поэтому подключаемся к 127.0.0.1:5432
         DB_HOST: 127.0.0.1
-        DB_PORT: 5432
+        DB_PORT: 5433
         SECRET_KEY: django-insecure-secret-abcabc123123
         DEBUG: False
         ALLOWED_HOSTS: '158.160.69.22,127.0.0.1,localhost'
