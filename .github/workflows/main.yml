@@ -38,9 +38,10 @@ jobs:
 
     - name: Install dependencies
       run: |
+        pwd
+        python -m pip install --upgrade pip
         python -m venv venv
         source venv/bin/activate
-        python -m pip install --upgrade pip
         pip install flake8==6.0.0 flake8-isort==6.0.0
         pip install -r ./backend/requirements.txt
     # Этот шаг дополним переменными для доступа к БД
@@ -58,6 +59,7 @@ jobs:
         DEBUG: False
         ALLOWED_HOSTS: '158.160.69.22,127.0.0.1,localhost'
       run: |
+        pwd
         python -m venv venv
         source venv/bin/activate
         pip install -r ./backend/requirements.txt
