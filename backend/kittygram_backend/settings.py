@@ -82,7 +82,7 @@ DATABASES = {
         'NAME': 'django',
         'USER': 'django_kitty_user',
         'PASSWORD': '123321',
-        'HOST': 'db_kitty',
+        'HOST': os.getenv('DB_HOST', ''),
         'PORT': '5432'
     }
 }
