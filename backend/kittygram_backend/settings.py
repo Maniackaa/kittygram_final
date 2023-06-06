@@ -1,25 +1,16 @@
-# В общем убрал я dotenv и засунул все переменные сюда, так как яндекс
-# не принимает сним. Вот тему создал:
-# https://app.pachca.com/chats/3678643?message=57033425
-# Кроме этого так-же без .env не создается база, поэтому пришлось и его
-# включать на гитхаб
 # flake8: noqa
 import os
 from pathlib import Path
-# from dotenv import load_dotenv
+from dotenv import load_dotenv
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-# load_dotenv()
+load_dotenv()
 
-# SECRET_KEY = os.getenv('SECRET_KEY')
-SECRET_KEY = 'jango-insecure-5!@(1#jwja4*pmu@0t2@r$!m8*g!tftwuotz4a527mqz99-u12'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
-# DEBUG = (os.getenv('DEBUG', 'False').lower() == 'true')
-DEBUG = False
+DEBUG = (os.getenv('DEBUG', 'False').lower() == 'true')
 
-# ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS').split(',')
-ALLOWED_HOSTS = ['158.160.69.22', '127.0.0.1', 'localhost',
-                 'taskikiski.hopto.org']
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS').split(',')
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -69,23 +60,12 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': os.getenv('POSTGRES_DB', 'django'),
-        'USER': os.getenv('POSTGRES_USER', 'django_kitty_user'),
+        'USER': os.getenv('POSTGRES_USER', 'django'),
         'PASSWORD': os.getenv('POSTGRES_PASSWORD', ''),
         'HOST': os.getenv('DB_HOST', ''),
         'PORT': os.getenv('DB_PORT', 5432)
     }
 }
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'django',
-#         'USER': 'django_kitty_user',
-#         'PASSWORD': '123321',
-#         'HOST': os.getenv('DB_HOST', ''),
-#         'PORT': '5432'
-#     }
-# }
 
 
 # Password validation
@@ -118,11 +98,10 @@ USE_TZ = True
 
 
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'collected_static'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
+STATIC_ROOT = BASE_DIR / 'collected_static'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
