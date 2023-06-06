@@ -1,4 +1,4 @@
-name: Main Taski workflow
+name: Main Kittygram workflow
 
 on:
   push:
@@ -39,7 +39,6 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip 
-        pip install python-dotenv
         pip install flake8==6.0.0 flake8-isort==6.0.0
         pip install -r ./backend/requirements.txt
     # Этот шаг дополним переменными для доступа к БД
@@ -57,7 +56,6 @@ jobs:
         DEBUG: False
         ALLOWED_HOSTS: '158.160.69.22,127.0.0.1,localhost,193.168.49.216'
       run: |
-        pip install python-dotenv
         python -m flake8 backend/
         cd backend/
         python manage.py test
