@@ -34,10 +34,11 @@ DB_PORT=5432
 SECRET_KEY='django-insecure-5!@(1#jwja4*pmu@0t2@r$!m8*g!tftwuotz4a527mqz99-u15'
 DEBUG=False
 ALLOWED_HOSTS='158.160.69.22,127.0.0.1,localhost,*' # Обязательно указать адрес сервера
+NGINX_PORT=9000
 ```
 Сохранить содержимое ctrl+O, ctrl+x. 
 
-Для хапуска выполнить команду 
+Для запуска выполнить команду 
 ```
 docker compose-up -d
 ```

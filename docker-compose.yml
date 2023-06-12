@@ -14,8 +14,7 @@ services:
       - pg_data:/var/lib/postgresql/data
 
   backend:
-#    build: ./backend/
-    image: maniac82/kittygram_backend
+    build: ./backend/
     restart: always
     env_file: .env
     depends_on:
@@ -26,19 +25,17 @@ services:
 
   frontend:
     env_file: .env
-#    build: ./frontend/
-    image: maniac82/kittygram_frontend
+    build: ./frontend/
     command: cp -r /app/build/. /static/
     volumes:
       - static:/static
 
   gateway:
-#    build: ./nginx/
-    image: maniac82/kittygram_gateway
+    build: ./nginx/
     env_file: .env
     restart: always
     ports:
-      - 9000:80
+      - $NGINX_PORT:80
     volumes:
       - static:/static
       - media:/media
