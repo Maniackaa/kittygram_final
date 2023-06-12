@@ -8,6 +8,7 @@ volumes:
 services:
   db_kitty:
     image: postgres:13.10
+    restart: always
     env_file: .env
     volumes:
       - pg_data:/var/lib/postgresql/data
@@ -15,6 +16,7 @@ services:
   backend:
 #    build: ./backend/
     image: maniac82/kittygram_backend
+    restart: always
     env_file: .env
     depends_on:
       - db_kitty
@@ -34,6 +36,7 @@ services:
 #    build: ./nginx/
     image: maniac82/kittygram_gateway
     env_file: .env
+    restart: always
     ports:
       - 9000:80
     volumes:
