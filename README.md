@@ -1,26 +1,49 @@
-#  Как работать с репозиторием финального задания
+## Проект KittyGram
 
-## Что нужно сделать
+Проект позволяет хранить в базе кошечек с их фотографиями и личными данными. 
 
-Настроить запуск проекта Kittygram в контейнерах и CI/CD с помощью GitHub Actions
 
-## Как проверить работу с помощью автотестов
+### Использованные технологии
 
-В корне репозитория создайте файл tests.yml со следующим содержимым:
-```yaml
-repo_owner: ваш_логин_на_гитхабе
-kittygram_domain: полная ссылка (https://доменное_имя) на ваш проект Kittygram
-taski_domain: полная ссылка (https://доменное_имя) на ваш проект Taski
-dockerhub_username: ваш_логин_на_докерхабе
+Django, Django REST Framework, Node.js
+
+
+### Установка и запуск проекта: 
+
+Клонировать репозиторий и перейти в него в командной строке:
+
+```
+git clone https://github.com/Maniackaa/kittygram_final.git
 ```
 
-Скопируйте содержимое файла `.github/workflows/main.yml` в файл `kittygram_workflow.yml` в корневой директории проекта.
+```
+cd kittygram_final
+```
+В папку kittygram_final создать файл .env
+```
+nano .env
+```
 
-Для локального запуска тестов создайте виртуальное окружение, установите в него зависимости из backend/requirements.txt и запустите в корневой директории проекта `pytest`.
+в котором указать переменные, например:
+```
+POSTGRES_USER=django
+POSTGRES_PASSWORD=12345
+POSTGRES_DB=django
+DB_HOST=db
+DB_PORT=5432
+SECRET_KEY='django-insecure-5!@(1#jwja4*pmu@0t2@r$!m8*g!tftwuotz4a527mqz99-u15'
+DEBUG=False
+ALLOWED_HOSTS='158.160.69.22,127.0.0.1,localhost,*' # Обязательно указать адрес сервера
+```
+Сохранить содержимое ctrl+O, ctrl+x. 
 
-## Чек-лист для проверки перед отправкой задания
+Для хапуска выполнить команду 
+```
+docker compose-up -d
+```
 
-- Проект Taski доступен по доменному имени, указанному в `tests.yml`.
-- Проект Kittygram доступен по доменному имени, указанному в `tests.yml`.
-- Пуш в ветку main запускает тестирование и деплой Kittygram, а после успешного деплоя вам приходит сообщение в телеграм.
-- В корне проекта есть файл `kittygram_workflow.yml`.
+# Об авторе
+### Об авторе.
+<h1 align="center">Hi there, I'm <a href="https://oldit.ru" target="_blank">Alexey</a> 
+<img src="https://github.com/blackcater/blackcater/raw/main/images/Hi.gif" height="32"/></h1>
+<h3 align="center">Python backend student from Russia.</h3>

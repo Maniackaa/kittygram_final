@@ -7,4 +7,5 @@ COPY . .
 #CMD ["gunicorn", "--bind", "0.0.0.0:9000", "kittygram_backend.wsgi"]
 #RUN entrypoint.sh
 COPY ./entrypoint.sh /
+RUN ["chmod", "+x", "/app/entrypoint.sh"]
 ENTRYPOINT ["/entrypoint.sh"]

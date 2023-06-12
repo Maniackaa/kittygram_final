@@ -47,5 +47,5 @@ python3 manage.py migrate
 Запустить проект:
 
 ```
-python3 manage.py runserver
+gunicorn --bind 0.0.0.0:9000 kittygram_backend.wsgi
 ```
